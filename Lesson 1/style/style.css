@@ -1,0 +1,134 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header {
+    height: 80px;
+    background: #eee;
+    box-shadow: 0 0 5px 0 #20171f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    flex: 0 0 auto;
+}
+
+.shop-name {
+    text-shadow: 2px 2px 3px #6b6766;
+    color: #ff3531;
+}
+
+.first-latter {
+    font-size: 200%;
+    color: #eeb116;
+}
+
+.btn-cart {
+    width: 70px;
+    height: 70px;
+    outline: none;
+    background: url(../images/cart.png) no-repeat center;
+    background-size: cover;
+    border: none;
+    transition: all ease .3s;
+}
+
+.btn-cart:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.catalog {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.product-item {
+    width: 250px;
+    border: 3px dotted #887960;
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap column;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    transition: all .3s ease;
+}
+
+.product-item:hover {
+    transform: scale(1.1);
+}
+
+.product-item h3 {
+    padding: 5px;
+    color: brown;
+    text-align: center;
+}
+
+.product-item p {
+    padding: 5px;
+    font-size: 18px;
+    color: #ff3000;
+    font-weight: 700;
+    text-align: center;
+}
+
+.product-item p:after {
+    content: ' руб.';
+}
+
+.by-btn {
+    border: 2px solid #ff3000;
+    padding: 10px;
+    margin: 15px;
+    color: #20171f;
+    background-color: #eeb116;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all .3s ease;
+}
+
+.by-btn:hover {
+    color: #ff3000;
+    border: 2px solid #eeb116;
+    background-color: #eee;
+    cursor: pointer;
+    outline: none;
+}
+
+footer {
+    height: 80px;
+    background: #eee;
+    box-shadow: 0 0 5px 0 #20171f;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+footer h3 {
+    color: #e03457;
+}
+
+footer .shop-name {
+    font-size: 19px;
+}
