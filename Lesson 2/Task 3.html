@@ -69,36 +69,44 @@
 <div class="sum-Price"></div>
 <script>
 
-    class CreateBurger {
+    class Burger {
+        constructor(container = '.sum-Price') {
+            this.container = container;
+            this.choice = {};
+            this._calc();
+            this.getText();
+        }
 
-        render() {
-            let totalPrice = 0;
-            let calories = 0;
-            let choice = 'Вы выбрали ';
+
+        _calc() {
             let gamb = document.querySelectorAll('.gamb');
-            document.querySelector('.sum-Price').innerHTML = '';
-
+            this.choice.price = 0;
+            this.choice.calories = 0;
+            this.choice.text = '';
             for (let i = 0; i < gamb.length; i++) {
                 let title = gamb[i].dataset['title'];
                 let price = +gamb[i].dataset['price'];
                 let calls = +gamb[i].dataset['calories'];
                 if (gamb[i].checked) {
-                    choice += title;
-                    totalPrice += price;
-                    calories += calls;
+                    this.choice.text += title;
+                    this.choice.price += price;
+                    this.choice.calories += calls;
                 }
             }
-            document.querySelector('.sum-Price')
-                .insertAdjacentHTML('afterbegin', `${choice} на ${totalPrice} рублей. Его калорийность - ${calories} калорий.`);
-
-
+            return `Вы выбрали ${this.choice.text} на ${this.choice.price} рублей. Его калорийность ${this.choice.calories}`;
         }
 
+
+        getText() {
+            let sumText = document.querySelector(this.container);
+            sumText.innerHTML = '';
+            sumText.insertAdjacentHTML('afterbegin', this._calc());
+        }
     }
 
-    const burger = new CreateBurger();
-    document.querySelector('#buy').addEventListener('click', burger.render);</script>
+    document.querySelector('#buy').addEventListener('click', () => new Burger());
 
 
+</script>
 </body>
 </html>
