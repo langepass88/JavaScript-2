@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gamburger</title>
+    <style>
+        div {
+            padding: 20px;
+            margin: 10px;
+            font-size: 24px;
+            text-align: center;
+
+        }
+
+        .sum-Price {
+            font-size: 28px;
+            color: #eeb116;
+            font-weight: 700;
+        }
+
+        .gamb-choice {
+            border: 3px solid #ffd949;
+        }
+
+        .gamb-filling {
+            border: 3px dashed darkblue;
+        }
+
+        .gamb-add {
+            border: 3px dotted #887960;
+        }
+
+        button {
+            padding: 20px;
+            font-weight: 700;
+            background: #ee942f;
+            color: #fff;
+            font-size: 11px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="gamb-choice">
+    <input type="radio" id="gamb-little" class="gamb" name="gamb-choice" data-title="маленький гамбургер "
+           data-price="50" data-calories="20" checked><label for="gamb-little">Маленький (50 рублей, 20 калорий)</label>
+    <input type="radio" id="gamb-big" class="gamb" name="gamb-choice" data-title="большой гамбургер " data-price="100"
+           data-calories="40"><label for="gamb-big">Большой (100 рублей, 40 калорий)</label>
+</div>
+
+<div class="gamb-filling">
+    <input type="radio" id="fill-1" class="gamb" name="gamb-filling" data-title="с сыром " data-price="10"
+           data-calories="20" checked><label for="fill-1">С сыром (+10 рублей, +20 калорий)</label><br>
+    <input type="radio" id="fill-2" class="gamb" name="gamb-filling" data-title="с салатом " data-price="20"
+           data-calories="5"><label for="fill-2">С салатом(+20 рублей, +5 калорий)</label><br>
+    <input type="radio" id="fill-3" class="gamb" name="gamb-filling" data-title="с картофелем " data-price="15"
+           data-calories="10"><label for="fill-3">С картофелем(+15 рублей, +10 калорий)</label><br>
+</div>
+
+<div class="gamb-add">
+    <input type="checkbox" id="spice" class="gamb" name="gamb-add" data-title=", посыпанный приправой " data-price="15"
+           data-calories="0"><label for="spice">+ Посыпать приправой (+15 рублей, +0 калорий)</label><br>
+    <input type="checkbox" id="mayon" class="gamb" name="gamb-add" data-title=", политый майонезом " data-price="20"
+           data-calories="5"><label for="mayon">+ Полить майонезом (+20 рублей, +5 калорий)</label><br>
+</div>
+<div class="buttons">
+    <button id="buy">Купить!</button>
+</div>
+<div class="sum-Price"></div>
+<script>
+
+    class Burger {
+        constructor(container = '.sum-Price') {
+            this.container = container;
+            this.choice = {};
+            this._calc();
+            this.getText();
+        }
+
+
+        _calc() {
+            let gamb = document.querySelectorAll('.gamb');
+            this.choice.price = 0;
+            this.choice.calories = 0;
+            this.choice.text = '';
+            for (let i = 0; i < gamb.length; i++) {
+                let title = gamb[i].dataset['title'];
+                let price = +gamb[i].dataset['price'];
+                let calls = +gamb[i].dataset['calories'];
+                if (gamb[i].checked) {
+                    this.choice.text += title;
+                    this.choice.price += price;
+                    this.choice.calories += calls;
+                }
+            }
+            return `Вы выбрали ${this.choice.text} на ${this.choice.price} рублей. Его калорийность ${this.choice.calories}`;
+        }
+
+
+        getText() {
+            let sumText = document.querySelector(this.container);
+            sumText.innerHTML = '';
+            sumText.insertAdjacentHTML('afterbegin', this._calc());
+        }
+    }
+
+    document.querySelector('#buy').addEventListener('click', () => new Burger());
+
+
+</script>
+</body>
+</html>
