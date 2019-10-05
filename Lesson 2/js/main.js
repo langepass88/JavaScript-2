@@ -16,8 +16,7 @@ class ItemsList {
     }
 
     total() {
-        const sum = this.items.reduce((a, {price = 0}) => a += price, 0);
-        return `Общая сумма всех товаров равна: ${sum} рублей`;
+        return this.items.reduce((a, {price = 0}) => a + price, 0);
     }
 
     render() {
@@ -91,7 +90,7 @@ class CartItem {
 const items = new ItemsList();
 items.fetchItems();
 document.querySelector('.catalog').insertAdjacentHTML('afterbegin', items.render());
-document.querySelector('.total').insertAdjacentHTML('afterbegin', items.total());
+document.querySelector('.total').insertAdjacentHTML('afterbegin', `Общая сумма всех товаров равна: ${items.total()} рублей`);
 
 
 
