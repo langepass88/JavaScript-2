@@ -1,0 +1,42 @@
+{
+  "goods": [
+    {
+      "id": 1,
+      "title": "Компьютерная мышь",
+      "price": 400,
+      "img": "https://i.ytimg.com/vi/1pN88tT4ees/maxresdefault.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Жесткий диск SSD 1Tb",
+      "price": 4000,
+      "img": "https://i.ytimg.com/vi/1pN88tT4ees/maxresdefault.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Материнская плата",
+      "price": 8500,
+      "img": "https://i.ytimg.com/vi/1pN88tT4ees/maxresdefault.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Видео-карта",
+      "price": 6000,
+      "img": "https://i.ytimg.com/vi/1pN88tT4ees/maxresdefault.jpg"
+    }
+  ],
+  "cart": [
+    {
+      "id": 2,
+      "title": "Жесткий диск SSD 1Tb",
+      "price": 4000,
+      "qty": 2
+    },
+    {
+      "id": 1,
+      "title": "Компьютерная мышь",
+      "price": 400,
+      "qty": 16
+    }
+  ]
+}
