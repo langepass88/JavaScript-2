@@ -74,6 +74,7 @@ class Cart {
         })
             .then((response) => response.json())
             .then((item) => {
+                
                 this.element.insertAdjacentHTML('afterbegin', Cart.renderItem(item));
             });
         this.items.push({...item, qty: 1});
@@ -182,8 +183,8 @@ document.querySelector('.catalog').addEventListener('click', (event) => {
 });
 
 
-document.querySelector('.btn-search').addEventListener('click', () => {
-    const query = document.querySelector('[name="query"]').value;
+document.querySelector('[name="query"]').addEventListener('input', (event) => {
+    const query = event.target.value;
     items.filter(query);
     document.querySelector('.catalog').innerHTML = items.render();
 });
