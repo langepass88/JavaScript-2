@@ -43,7 +43,7 @@ class Item {
     }
 
     render() {
-        return `<div class="product-item"><h3>${this.title}</h3><p>${this.price}</p><button 
+        return `<div class="product-item"><h3>${this.title}</h3><p>${this.price}</p><button
         data-id="${this.id}" data-title="${this.title}" data-price="${this.price}" class="by-btn">Купить</button></div>`;
     }
 
@@ -74,7 +74,7 @@ class Cart {
         })
             .then((response) => response.json())
             .then((item) => {
-                
+
                 this.element.insertAdjacentHTML('afterbegin', Cart.renderItem(item));
             });
         this.items.push({...item, qty: 1});
@@ -192,13 +192,6 @@ document.querySelector('[name="query"]').addEventListener('input', (event) => {
 document.querySelector('.btn-cart').addEventListener('click', () => {
     document.querySelector('.cart-block').classList.toggle('invisible');
 });
-
-
-
-
-
-
-
 
 
 
